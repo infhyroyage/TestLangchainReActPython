@@ -17,5 +17,7 @@ llm = AzureChatOpenAI(
 tools = [GoogleSearchRun(api_wrapper=GoogleSearchAPIWrapper())]
 prompt = hub.pull("hwchase17/react")
 agent = create_react_agent(llm, tools, prompt)
-agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
+agent_executor = AgentExecutor(
+    agent=agent, tools=tools, handle_parsing_errors=True, verbose=True
+)
 agent_executor.invoke({"input": "2023年に開催したWorld Baseball Classicの優勝国は？"})
