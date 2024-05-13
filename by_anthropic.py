@@ -17,4 +17,6 @@ agent = create_react_agent(llm, tools, prompt)
 agent_executor = AgentExecutor(
     agent=agent, tools=tools, handle_parsing_errors=True, verbose=True
 )
-agent_executor.invoke({"input": "2023年に開催したWorld Baseball Classicの優勝国は？"})
+with open("input.txt", "r", encoding="utf-8") as file:
+    input_text = file.read().replace("\n", "\\n")
+    agent_executor.invoke({"input": input_text})
