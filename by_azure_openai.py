@@ -1,11 +1,10 @@
-"""Run ReAct with Azure OpenAI and """
+"""Run ReAct with Azure OpenAI and Google Search"""
 
 import os
 from dotenv import load_dotenv
 from langchain import hub
 from langchain.agents import AgentExecutor, create_react_agent
-from langchain_community.tools.google_search.tool import GoogleSearchRun
-from langchain_community.utilities.google_search import GoogleSearchAPIWrapper
+from langchain_google_community import GoogleSearchAPIWrapper, GoogleSearchRun
 from langchain_openai import AzureChatOpenAI
 
 load_dotenv()
