@@ -11,7 +11,6 @@ from langchain_openai import AzureChatOpenAI
 load_dotenv()
 
 llm = AzureChatOpenAI(
-    openai_api_version="2024-02-15-preview",
     azure_deployment=os.getenv("AZURE_OPENAI_API_DEPLOYMENT_NAME"),
 )
 tools = [GoogleSearchRun(api_wrapper=GoogleSearchAPIWrapper())]
